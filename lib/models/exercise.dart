@@ -3,16 +3,24 @@ class Exercise {
     required this.title,
     required this.prelude,
     required this.duration,
+    this.index,
+    this.startTime,
   });
 
-  String title;
-  int prelude;
-  int duration;
+  final String? title;
+  final int? prelude;
+  final int? duration;
+  final int? index;
+  final int? startTime;
 
-  factory Exercise.fromJson(Map<String, dynamic> json) => Exercise(
+  factory Exercise.fromJson(
+          Map<String, dynamic> json, int index, int startTime) =>
+      Exercise(
         title: json["title"],
         prelude: json["prelude"],
         duration: json["duration"],
+        index: index,
+        startTime: startTime,
       );
 
   Map<String, dynamic> toJson() => {
